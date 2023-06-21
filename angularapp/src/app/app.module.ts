@@ -12,7 +12,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { CreateBookingComponent } from './create-booking/create-booking.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
+
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ServiceComponent } from './service/service.component';
@@ -30,7 +30,6 @@ import { ServiceComponent } from './service/service.component';
     CreateBookingComponent,
     ContactusComponent,
     BookingListComponent,
-    AboutusComponent,
     BookingDetailsComponent,
     ProfileComponent,
     ServiceComponent
