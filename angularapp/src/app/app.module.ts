@@ -5,13 +5,35 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { CreateBookingComponent } from './create-booking/create-booking.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { BookingListComponent } from './booking-list/booking-list.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ServiceComponent } from './service/service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    LogoutComponent,
+    NavbarComponent,
+    FooterComponent,
+    ForgotPasswordComponent,
+    CreateBookingComponent,
+    ContactusComponent,
+    BookingListComponent,
+    AboutusComponent,
+    BookingDetailsComponent,
+    ProfileComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,
