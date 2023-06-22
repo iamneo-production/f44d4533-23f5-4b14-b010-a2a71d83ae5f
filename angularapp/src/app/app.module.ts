@@ -14,7 +14,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ServiceComponent } from './service/service.component';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +30,7 @@ import { ServiceComponent } from './service/service.component';
     ContactusComponent,
     BookingListComponent,
     BookingDetailsComponent,
-    ProfileComponent,
-    ServiceComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
