@@ -14,6 +14,8 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { UpdateBookingComponent } from './update-booking/update-booking.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { ProfileComponent } from './profile/profile.component';
     ContactusComponent,
     BookingListComponent,
     BookingDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    AboutusComponent,
+    UpdateBookingComponent
   ],
   imports: [
     BrowserModule,
