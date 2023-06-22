@@ -16,6 +16,7 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { UpdateBookingComponent } from './update-booking/update-booking.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { UpdateBookingComponent } from './update-booking/update-booking.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
