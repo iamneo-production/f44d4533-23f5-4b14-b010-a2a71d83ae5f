@@ -1,0 +1,22 @@
+.container {
+    margin-right: 10%;
+    margin-top: 100px;
+  }
+  
+  .profile-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    flex: 0 0 auto;
+    margin-right: 20px;
+  }
+  
+  .profile-details {
+    flex: 1 1 auto;
+  }
+  
+
+  
