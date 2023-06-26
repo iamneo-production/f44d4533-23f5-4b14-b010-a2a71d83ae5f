@@ -1,10 +1,9 @@
-//package com.AcServiceBackend.AcServiceBackend.service;
-package com.springapp.springapp.service;
+package com.application.springapp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
-import com.springapp.springapp.model.registermodel;
-import com.springapp.springapp.repo.registerrepo;
+import com.application.springapp.model.registermodel;
+import com.application.springapp.repo.registerrepo;
 
 @Service
 @Configuration
