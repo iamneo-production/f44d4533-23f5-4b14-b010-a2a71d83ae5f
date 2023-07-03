@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan(basePackages = {"com.application.springapp.controller", "com.application.springapp.service",
+@ComponentScan(basePackages = {"com.application.springapp.registercontroller", "com.application.springapp.service",
 "com.application.springapp.model","com.application.springapp.repo"  })
 @EnableAutoConfiguration
 @EnableJpaRepositories("com.application.springapp.repo")

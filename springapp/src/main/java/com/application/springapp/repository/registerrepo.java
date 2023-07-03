@@ -1,4 +1,4 @@
-package com.application.springapp.repo;
+package com.application.springapp.repository;
 import org.springframework.stereotype.Repository;
 import com.application.springapp.model.registermodel;
 import org.springframework.data.jpa.repository.JpaRepository;
