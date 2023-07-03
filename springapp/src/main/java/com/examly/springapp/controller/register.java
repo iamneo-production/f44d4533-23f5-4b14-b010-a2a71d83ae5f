@@ -1,4 +1,4 @@
-package com.application.springapp.registercontroller;
+package com.examly.springapp.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.application.springapp.model.registermodel;
-import com.application.springapp.service.RegisterService;
+import com.examly.springapp.model.registermodel;
+import com.examly.springapp.service.RegisterService;
 
 
 @RestController
