@@ -1,6 +1,6 @@
-package com.application.springapp.repository;
+package com.examly.springapp.repository;
 import org.springframework.stereotype.Repository;
-import com.application.springapp.model.registermodel;
+import com.examly.springapp.model.registermodel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
