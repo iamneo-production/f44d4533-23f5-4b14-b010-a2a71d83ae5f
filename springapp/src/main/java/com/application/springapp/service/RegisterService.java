@@ -1,9 +1,9 @@
-package com.examly.springapp.service;
+package com.application.springapp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
-import com.examly.springapp.model.registermodel;
-import com.examly.springapp.repository.registerrepo;
+import com.application.springapp.model.registermodel;
+import com.application.springapp.repo.registerrepo;
 
 @Service
 @Configuration
