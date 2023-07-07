@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 "com.application.springapp.model","com.application.springapp.repo"  })
 @EnableAutoConfiguration
 @EnableJpaRepositories("com.application.springapp.repo")
-@SpringBootApplication
+//@SpringBootApplication
 public class SpringappApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringappApplication.class, args);
