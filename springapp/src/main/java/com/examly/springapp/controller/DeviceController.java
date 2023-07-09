@@ -1,74 +1,94 @@
 package com.examly.springapp.controller;
-
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import com.examly.springapp.exception.ResourceNotFoundException;
 import com.examly.springapp.model.Device;
 import com.examly.springapp.repository.DeviceRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io")
 public class DeviceController {
-	
-	@Autowired
-	private DeviceRepo deviceRepository;
-	
-	// get all devices
-	@GetMapping("/devices")
-	public List<Device> getAllDevices(){
-		
-		return deviceRepository.findAll();
-	}
 
-	// create device rest APII
-		@PostMapping("/devices")
-		public Device createDevice(@RequestBody Device device) {
-			return deviceRepository.save(device);
-		}
-		
-	// get device by id rest API
-		@GetMapping("/devices/{id}")
-		public ResponseEntity<Device> getDeviceById(@PathVariable Long id) {
-			Device device = deviceRepository.findById(id)
-					.orElseThrow(() -> new ResourceNotFoundException("device not exist with id :" + id));
-			return ResponseEntity.ok(device);
-		}
-		
-	// update device rest API
-		
-		@PutMapping("/devices/{id}")
-		public ResponseEntity<Device> updateDevice(@PathVariable Long id, @RequestBody Device deviceDetails){
-		    Device device = deviceRepository.findById(id)
-		            .orElseThrow(() -> new ResourceNotFoundException("Device does not exist with id: " + id));
+    private final DeviceRepo deviceRepository;
 
-		    device.setDeviceType(deviceDetails.getDeviceType());
-		    device.setDeviceBrand(deviceDetails.getDeviceBrand());
-		    device.setDeviceModel(deviceDetails.getDeviceModel());
+    @Autowired
+    public DeviceController(DeviceRepo deviceRepository) {
+        this.deviceRepository = deviceRepository;
+    }
 
-		    Device updatedDevice = deviceRepository.save(device);
-		    return ResponseEntity.ok(updatedDevice);
-		}
+    // Get all devices
+    @GetMapping("/devices")
+    public List<Device> getAllDevices() {
+        return deviceRepository.findAll();
+    }
 
-	// delete device rest API
-		
-	@DeleteMapping("/devices/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteBooking(@PathVariable Long id){
-		Device device = deviceRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("device not exist with id :" + id));
-		
-		deviceRepository.delete(device);
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", Boolean.TRUE);
-		return ResponseEntity.ok(response);
-	}
+    // Create device
+    @PostMapping("/devices")
+    public ResponseEntity<?> createDevice(@RequestBody Device device) {
+        Device createdDevice = deviceRepository.save(device);
+        if (createdDevice != null) {
+            return ResponseEntity.ok().body(true);
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    
+
+    // Get device by ID
+    @GetMapping("/devices/{id}")
+    public ResponseEntity<Device> getDeviceById(@PathVariable Long id) {
+        Optional<Device> optionalDevice = deviceRepository.findById(id);
+        if (optionalDevice.isPresent()) {
+            Device device = optionalDevice.get();
+            return ResponseEntity.ok(device);
+        } else {
+            return ResponseEntity.ok().body(null);
+        }
+    }
+    
+    
+    // Update device
+    @PutMapping("/devices/{id}")
+    public ResponseEntity<Map<String, Boolean>> updateDevice(@PathVariable Long id, @RequestBody Device deviceDetails) {
+        Optional<Device> optionalDevice = deviceRepository.findById(id);
+        if (optionalDevice.isPresent()) {
+            Device device = optionalDevice.get();
+            device.setType(deviceDetails.getType());
+            device.setBrand(deviceDetails.getBrand());
+            device.setModel(deviceDetails.getModel());
+            deviceRepository.save(device);
+            Map<String, Boolean> response = new HashMap<>();
+            response.put("updated", true);
+            return ResponseEntity.ok(response);
+        } else {
+            Map<String, Boolean> response = new HashMap<>();
+            response.put("Not Updated", false);
+            return ResponseEntity.ok(response);
+        }
+    }
+
+    // Delete device
+    @DeleteMapping("/devices/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteDevice(@PathVariable Long id) {
+        Optional<Device> optionalDevice = deviceRepository.findById(id);
+        if (optionalDevice.isPresent()) {
+            Device device = optionalDevice.get();
+            deviceRepository.delete(device);
+            Map<String, Boolean> response = new HashMap<>();
+            response.put("deleted", true);
+            return ResponseEntity.ok(response);
+        } else {
+            Map<String, Boolean> response = new HashMap<>();
+            response.put("Not deleted", false);
+            return ResponseEntity.ok(response);
+        }
+    }
+
 }
