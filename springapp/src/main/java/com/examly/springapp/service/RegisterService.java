@@ -1,9 +1,9 @@
-package com.application.springapp.service;
+package com.examly.springapp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
-import com.application.springapp.model.registermodel;
-import com.application.springapp.repo.registerrepo;
+import com.examly.springapp.model.registermodel;
+import com.examly.springapp.repository.registerrepo;
 
 @Service
 @Configuration
@@ -37,5 +37,4 @@ public class RegisterService {
             return "Email not found. Password reset failed.";
         }
     }
-    
 }
