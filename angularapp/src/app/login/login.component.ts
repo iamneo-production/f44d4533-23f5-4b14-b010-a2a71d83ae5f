@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,26 +14,7 @@ export class LoginComponent implements OnInit {
   email: any;
   password: any;
 
-  constructor(private formBuilder: FormBuilder,private router: Router,private http:HttpClient) { }
-  addlogin():void{
-    const url = `https://8080-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io/register/${this.email}/${this.password}`;
-    this.http.get<number>(url)
-    .subscribe(createdUser =>{
-      console.log(createdUser);
-      if(createdUser==1)
-      {
-       alert("Login Sucessfully!");
-       this.router.navigate(['/home']);
-      }
-      else
-      {
-        console.log("Login not sucessfull");
-       alert("Invalid User!!");
-
-      }
-
-    });
-  }
+  constructor(private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({

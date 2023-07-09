@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,29 +5,12 @@ import { Router } from '@angular/router';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
-
-
-  
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup | any;
 
 
-  constructor(private formBuilder: FormBuilder,private http:HttpClient,private router: Router) { }
-  register: any={};
-
-  addregister(): void{
-    const url = 'https://8080-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io/register';
-    this.http.post(url,this.register)
-
-    .subscribe(createdUser =>{
-
-      console.log('Register created:',createdUser);
-      this.router.navigate(['/home']);
-      console.log(this.register);
-
-    });
-  }
+  constructor(private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({

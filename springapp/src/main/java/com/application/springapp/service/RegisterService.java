@@ -37,5 +37,4 @@ public class RegisterService {
             return "Email not found. Password reset failed.";
         }
     }
-    
 }
