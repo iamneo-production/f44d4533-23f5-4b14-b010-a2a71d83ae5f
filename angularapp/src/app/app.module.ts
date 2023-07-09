@@ -17,8 +17,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { UpdateBookingComponent } from './update-booking/update-booking.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -43,9 +41,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

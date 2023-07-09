@@ -10,52 +10,68 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "devices")
 public class Device {
-@Id
-	private Long id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name = "type")
 	private String type;
+
+	@Column(name = "brand")
 	private String brand;
+	
+	@Column(name = "model")
 	private String model;
-  
+	
+	
 	public Device() {
+		
 	}
-  
-	public Device(Long id, String type, String brand, String model) {
-	  this.id = id;
-	  this.type = type;
-	  this.brand = brand;
-	  this.model = model;
+	
+	public Device(String type, String brand, String model) {
+		super();
+		this.type = type;
+		this.brand = brand;
+		this.model = model;
 	}
-  
-	public Long getId() {
-	  return id;
+	
+	public long getId() {
+		return id;
 	}
-  
-	public void setId(Long id) {
-	  this.id = id;
+	
+	public void setId(long id) {
+		this.id = id;
 	}
-  
-	public String getType() {
-	  return type;
+	
+	
+	public String getDeviceType() {
+		return type;
 	}
-  
-	public void setType(String type) {
-	  this.type = type;
+	
+	public void setDeviceType(String type) {
+		this.type = type;
 	}
-  
-	public String getBrand() {
-	  return brand;
+	
+	public String getDeviceBrand() {
+		return brand;
 	}
-  
-	public void setBrand(String brand) {
-	  this.brand = brand;
+	
+	public void setDeviceBrand(String brand) {
+		this.brand = brand;
 	}
-  
-	public String getModel() {
-	  return model;
+	
+	public String getDeviceModel() {
+		return model;
 	}
-  
-	public void setModel(String model) {
-	  this.model = model;
+	
+	public void setDeviceModel(String model) {
+		this.model = model;
 	}
-  }
-  
+
+	
+
+
+	
+	
+}
