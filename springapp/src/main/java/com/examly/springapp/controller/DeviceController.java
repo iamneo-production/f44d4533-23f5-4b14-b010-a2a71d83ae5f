@@ -59,7 +59,6 @@ public class DeviceController {
 		    return ResponseEntity.ok(updatedDevice);
 		}
 
-
 	// delete device rest API
 		
 	@DeleteMapping("/devices/{id}")
