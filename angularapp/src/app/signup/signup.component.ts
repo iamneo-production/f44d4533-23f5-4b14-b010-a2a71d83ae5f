@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   register: any={};
 
   addregister(): void{
-    const url = 'https://8080-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io/register';
+    const url = 'https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register';
     this.http.post(url,this.register)
 
     .subscribe(createdUser =>{

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,private router: Router,private http:HttpClient) { }
   addlogin():void{
-    const url = `https://8080-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io/register/${this.email}/${this.password}`;
+    const url = `https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/${this.email}/${this.password}`;
     this.http.get<number>(url)
     .subscribe(createdUser =>{
       console.log(createdUser);

@@ -14,7 +14,7 @@ export class ForgotPasswordComponent  {
   password: any;
 
   constructor(private formBuilder: FormBuilder,private router: Router,private http:HttpClient) { }
-  forgetPassword() { const url = 'https://8080-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io/register/forgetpassword';
+  forgetPassword() { const url = 'https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/forgetpassword';
   const options = {
     params: {
       email: this.email,
