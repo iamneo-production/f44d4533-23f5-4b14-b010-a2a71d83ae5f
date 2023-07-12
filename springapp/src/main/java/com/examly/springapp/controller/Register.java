@@ -11,19 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.model.registermodel;
 import com.examly.springapp.service.RegisterService;
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
-@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io")
 @RequestMapping("/register")
-public class register {
-  
+public class Register {
   private RegisterService registerService;
 
-  public register(RegisterService registerService) {
+  public Register(RegisterService registerService) {
     this.registerService = registerService;
   }
-
   @PostMapping
   public ResponseEntity<registermodel> addregisteruser(@RequestBody registermodel register) {
     registermodel createdUser = registerService.addregister(register);
