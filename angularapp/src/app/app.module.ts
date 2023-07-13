@@ -18,6 +18,12 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { UpdateBookingComponent } from './update-booking/update-booking.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminCustomersComponent } from './admin-customers/admin-customers.component';
+import { AdminDeviceComponent } from './admin-device/admin-device.component';
+import { AdminRepairComponent } from './admin-repair/admin-repair.component';
+import { AdminEmployeeComponent } from './admin-employee/admin-employee.component';
 
 
 @NgModule({
@@ -36,7 +42,13 @@ import { HttpClientModule } from '@angular/common/http';
     BookingDetailsComponent,
     ProfileComponent,
     AboutusComponent,
-    UpdateBookingComponent
+    UpdateBookingComponent,
+    AdminNavbarComponent,
+    AdminDashboardComponent,
+    AdminCustomersComponent,
+    AdminDeviceComponent,
+    AdminRepairComponent,
+    AdminEmployeeComponent
   ],
   imports: [
     BrowserModule,
