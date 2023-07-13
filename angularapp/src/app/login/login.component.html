@@ -1,3 +1,4 @@
+
 <a href="/"><img src="assets/img/logooo.png" width="100px" height="100px" alt="Logo"></a>
 <div class="container"><br>
   <div class="row">
@@ -6,19 +7,19 @@
       <form [formGroup]="loginForm" (ngSubmit)="addlogin()">
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" formControlName="email"[(ngModel)]="email">
+          <input type="email" class="form-control" id="email" formControlName="email" [(ngModel)]="email">
           <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched" class="error-message">
             Enter valid email address.
           </div>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password" formControlName="password"[(ngModel)]="password">
+          <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="password">
           <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" class="error-message">
             Enter valid password.
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary" >Login</button>
         <div *ngIf="loginForm.invalid && loginForm.touched" class="error-message">
           *Please fill in all the required fields.
         </div>
@@ -48,13 +49,16 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
+        <div class="forgot-password mt-3">
+          <a routerLink="/employee-login" style="text-decoration: none;color: black;font-style: italic;background-color:lightskyblue;border-radius: 2px;"> Employee Login </a>
+        </div>
         <div *ngIf="AdminloginForm.invalid && AdminloginForm.touched" class="error-message">
           *Please fill in all the required fields.
         </div>
+       
       </form>
     </div>
   </div>
 
 </div><br><br><br><br><br>
 
-  

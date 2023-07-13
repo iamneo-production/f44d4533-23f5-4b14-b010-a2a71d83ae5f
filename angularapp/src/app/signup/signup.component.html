@@ -1,10 +1,11 @@
+
 <a href="/"><img src="assets/img/logooo.png" width="100px" height="100px" alt="Logo"></a>
 <div class="container">
   <h2>Register Now</h2>
   <form [formGroup]="signupForm" (ngSubmit)="addregister()">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" formControlName="name"[(ngModel)]="register.name">
+      <input type="text" class="form-control" id="name" formControlName="name" [(ngModel)]="register.name">
       <div *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched" class="error-message">
         Name is required and must be a valid Name.
       </div>
@@ -15,12 +16,18 @@
       <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="error-message">
         Email is required and must be a valid email address.
       </div>
+      <div *ngIf="signupForm.get('email')?.hasError('emailExists')">
+        Email already exists.
+      </div>
     </div>
     <div class="form-group">
       <label for="phone">Phone Number:</label>
       <input type="tel" class="form-control" id="phone" formControlName="phone"[(ngModel)]="register.phone">
       <div *ngIf="signupForm.get('phone').invalid && signupForm.get('phone').touched" class="error-message">
         Phone number is required and must be a valid Phone number.
+      </div>
+      <div *ngIf="signupForm.get('phone')?.hasError('phoneExists')">
+        Phone number already exists.
       </div>
     </div>
     <div class="form-group">
