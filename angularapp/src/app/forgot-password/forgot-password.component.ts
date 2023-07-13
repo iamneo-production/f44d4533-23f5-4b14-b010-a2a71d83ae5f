@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
@@ -13,14 +12,9 @@ export class ForgotPasswordComponent  {
   forgotForm: FormGroup | any;
   email: any;
   password: any;
-  
+
   constructor(private formBuilder: FormBuilder,private router: Router,private http:HttpClient) { }
-  forgetPassword() { 
-    if (this.forgotForm.invalid) {
-      this.forgotForm.markAllAsTouched();
-      return;
-   }
-   const url = 'https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/forgetpassword';
+  forgetPassword() { const url = 'https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/forgetpassword';
   const options = {
     params: {
       email: this.email,
@@ -32,12 +26,7 @@ export class ForgotPasswordComponent  {
   .subscribe(
     response => {
       console.log('Password changed successfully:', response);
-      if (response === 'Email not found. Password reset failed.') {
-        alert('Email not found. Password reset failed.');
-      } else {
-        alert("Password successfully reseted")
-        this.router.navigate(['/login']);
-      }
+      this.router.navigate(['/home']);
     },
     error => {
       console.log('Error:', error);
@@ -56,8 +45,7 @@ export class ForgotPasswordComponent  {
 
   validateEmail(control: AbstractControl): { [key: string]: boolean } | null {
     const email = control.value;
-    const validEmailRegex = /^[A-Za-z0-9]+@gmail\.com$/;
-; // Matches email ending with @gmail.com
+    const validEmailRegex = /^[a-z]+@gmail\.com$/; // Matches email ending with @gmail.com
 
     if (!validEmailRegex.test(email)) {
       return { 'invalidEmail': true };
