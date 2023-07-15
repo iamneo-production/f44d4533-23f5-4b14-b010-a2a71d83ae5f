@@ -32,15 +32,15 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('customerId', customerId.toString());
           this.router.navigate(['/home']);
           console.log("logged in successful")
-          alert("Loggedin Successfully");
+          alert("Logged in Successfully!");
         } else {
           console.log("Login not successful");
-          alert("Invalid User!!");
+          alert("Invalid User!");
         }
       },
       (error) => {
         if (error.status === 404) {
-          alert("Invalid User!!");
+          alert("Invalid User!");
           console.log("Login not successful");
           // Hide the error message for 404 status
           return;
@@ -102,4 +102,3 @@ export class LoginComponent implements OnInit {
     
   }
   
-
