@@ -1,3 +1,39 @@
 <app-navbar></app-navbar>
-<p>booking-list works!</p>
-<app-footer></app-footer>
+<h1>Booking List</h1>
+<ng-container *ngIf="bookings">
+<table class="table" *ngIf="bookings.length > 0; else noBookings">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Device Type</th>
+      <th>Device Brand</th>
+      <th>Device Model</th>
+      <th>Problem</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings; let i = index">
+      <td>{{ i + 1 }}.</td>
+      <td>{{ booking.type }}</td>
+      <td>{{ booking.brand }}</td>
+      <td>{{ booking.model }}</td>
+      <td>{{ booking.description }}</td>
+      <td [ngClass]="getStatusClass(booking.status)">{{ booking.status }}</td>
+      <td>
+        <button *ngIf="booking.status === 'repair completed'; else notCompleted" (click)="deleteBooking(booking.id)" class="btn btn-danger" style="margin-left: 10px">Remove</button>
+        <ng-template #notCompleted>
+          <button (click)="updateBooking(booking.id)" class="btn btn-success">Update</button>
+          <button (click)="deleteBooking(booking.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+          <button (click)="bookingDetails(booking.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noBookings>
+  <p style="text-align: center;color: red;">No bookings available</p>
+</ng-template>
+</ng-container>
+<app-footer class="footer"></app-footer>
