@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -14,28 +14,46 @@ export class LoginComponent implements OnInit {
   AdminloginForm: FormGroup | any;
   email: any;
   password: any;
-
+  loginError: boolean = false;
   constructor(private formBuilder: FormBuilder,private router: Router,private http:HttpClient) { }
-  addlogin():void{
+  addlogin(): void {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+  
     const url = `https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/${this.email}/${this.password}`;
-    this.http.get<number>(url)
-    .subscribe(createdUser =>{
-      console.log(createdUser);
-      if(createdUser==1)
-      {
-       alert("Login Sucessfully!");
-       this.router.navigate(['/home']);
+    this.http.get<any>(url).subscribe(
+      (response: any) => {
+        const status = response.status;
+        const customerId = response.customerId;
+        if (status === 1) {
+          localStorage.setItem('loggedInStatus', 'loggedIn');
+          localStorage.setItem('customerId', customerId.toString());
+          this.router.navigate(['/home']);
+          console.log("logged in successful")
+          alert("Logged in Successfully!");
+        } else {
+          console.log("Login not successful");
+          alert("Invalid User!");
+        }
+      },
+      (error) => {
+        if (error.status === 404) {
+          alert("Invalid User!");
+          console.log("Login not successful");
+          // Hide the error message for 404 status
+          return;
+        }
+        alert("Invalid User!!");
+        console.log("Login not successful");
+        console.error('Error logging in:', error);
       }
-      else
-      {
-        console.log("Login not sucessfull");
-       alert("Invalid User!!");
-
-      }
-
-    });
+    );
   }
-
+ 
+  
+  
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, this.validateEmail]],
@@ -48,7 +66,7 @@ export class LoginComponent implements OnInit {
   }
   validateEmail(control: AbstractControl): { [key: string]: boolean } | null {
     const email = control.value;
-    const validEmailRegex = /^[a-z0-9]+@gmail\.com$/;
+    const validEmailRegex = /^[A-Za-z0-9]+@gmail\.com$/;
  // Matches email ending with @gmail.com
 
     if (!validEmailRegex.test(email)) {
@@ -58,30 +76,29 @@ export class LoginComponent implements OnInit {
     return null;
   }
 
-  onSubmit() {
-    if (this.loginForm.invalid) {
-       this.loginForm.markAllAsTouched();
-       return;
-    }
-    this.router.navigate(['/home']);
-    // Submit the form or perform further actions
-    // console.log(this.loginForm.value);
-  }
+
   AdminonSubmit() {
     if (this.AdminloginForm.invalid) {
       this.AdminloginForm.markAllAsTouched();
       return;
     }
-    const email = this.AdminloginForm.value.email;
-    const password = this.AdminloginForm.value.password;
-    
-    if (email === 'admin1@gmail.com' && password === '12345678' || email === 'admin2@gmail.com' && password === '87654321' ){
-      this.router.navigate(['/dashboard']);
-      console.log(this.AdminloginForm.value);
+    const email = this.AdminloginForm.get('email')?.value;
+    const password = this.AdminloginForm.get('password')?.value;
+
+    if (email === 'admin@gmail.com' && password === '12345678') {
+      // Successful login, navigate to the admin dashboard or desired page
+      this.router.navigate(['/admin-dashboard']);
+      alert("Loggedin Successfully");
+      localStorage.setItem('loggedInStatus','loggedIn');
+      console.log('true');
     } else {
-      // Show an error message or perform any other action
-      console.log('Invalid credentials');
-      alert("Invalid email & password");
+      // Invalid login, display error message
+      this.loginError = true;
+      alert("Invalid email or password");
+      console.log('error');
     }
+   
   }
-}
+    
+  }
+  
