@@ -1,0 +1,27 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3> Create Employee </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Device_Type</label>
+            <input type="text" class ="form-control" id = "Device_Type"
+                [(ngModel)] = "product.type" name = "Device_Type">
+        </div>
+    
+        <div class="form-group">
+            <label> Device_Brand</label>
+            <input type="text" class ="form-control" id = "Device_Brand"
+                [(ngModel)] = "product.brand" name = "Device_Brand">
+        </div>
+    
+        <div class="form-group">
+            <label> Device_Brand</label>
+            <input type="text" class ="form-control" id = "Device_Brand"
+                [(ngModel)] = "product.model" name = "Device_Model">
+        </div>
+    
+        <button class = "btn btn-success" type ="submit" >Submit</button>
+    
+    </form>
+    </div> 
