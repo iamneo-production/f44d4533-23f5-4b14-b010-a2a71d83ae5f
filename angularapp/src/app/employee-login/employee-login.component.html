@@ -1,1 +1,22 @@
-<p>employee-login works!</p>
+<a href="/"><img src="assets/img/logooo.png" width="100px" height="100px" alt="Logo"></a>
+<div class="container"><br>
+  <div class="row">
+    <div class="container-md-6">
+      <h2>Employee Login</h2>
+      <form [formGroup]="EmployeeloginForm" (ngSubmit)="AdminonSubmit()">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="employeeemail" formControlName="email">
+          <div *ngIf="EmployeeloginForm.get('email').invalid && EmployeeloginForm.get('email').touched" class="error-message">
+            Enter valid email address.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div *ngIf="EmployeeloginForm.invalid && EmployeeloginForm.touched" class="error-message">
+          *Please fill in all the required fields.
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
