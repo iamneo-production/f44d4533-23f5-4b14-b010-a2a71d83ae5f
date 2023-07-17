@@ -27,6 +27,9 @@ import { AdminEmployeeComponent } from './admin-employee/admin-employee.componen
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 import { CustomerBookingsComponent } from './customer-bookings/customer-bookings.component';
 import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.component';
+import { AdminAddEmployeeComponent } from './admin-add-employee/admin-add-employee.component';
+import { AdminUpdateEmployeeComponent } from './admin-update-employee/admin-update-employee.component';
+import { AdminViewEmployeeComponent } from './admin-view-employee/admin-view-employee.component';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { EmployeeNavbarComponent } from './employee-navbar/employee-navbar.compo
     AdminEmployeeComponent,
     EmployeeLoginComponent,
     CustomerBookingsComponent,
-    EmployeeNavbarComponent
+    EmployeeNavbarComponent,
+    AdminAddEmployeeComponent,
+    AdminUpdateEmployeeComponent,
+    AdminViewEmployeeComponent
   ],
   imports: [
     BrowserModule,
