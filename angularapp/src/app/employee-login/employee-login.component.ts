@@ -36,7 +36,7 @@ export class EmployeeLoginComponent implements OnInit {
     const email = this.EmployeeloginForm.get('email')?.value;
     const password = this.EmployeeloginForm.get('password')?.value;
 
-    this.http.get<any[]>('http://localhost:8083/employees').subscribe(data => {
+    this.http.get<any[]>('https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/employees').subscribe(data => {
       const matchingEmployee = data.find(employee => employee.email === email);
       if (matchingEmployee) {
         // Successful login, redirect to employee dashboard or desired page
