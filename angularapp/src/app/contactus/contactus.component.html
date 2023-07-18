@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div class="content">
+    <h1>Contact Us</h1><br>
+    <p>If you're in need of professional air conditioning services, don't hesitate to reach out to us. Our friendly team is available to answer your questions, schedule appointments, and provide reliable solutions tailored to your specific needs. Experience the difference with CoolTek AC Service Center.</p>
+<div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Contact Information</h2><br>
+                <ul class="contact-list">
+                  <li><img src="assets/img/location.png" width="30px" class="mr-5 mt-1">CoolTek Service,41/A Gandhi Street,<br>Coimbatore,Taminadu.</li>
+                  <li><img src="assets/img/phone.png" width="30px" class="mr-5 mt-1"> 987678-67856</li>
+                  <li><img src="assets/img/email.png" width="30px" class="mr-5 mt-1"><a href="mailto:cooltekacservice@gmail.com" style="text-decoration: none;color: white;"> cooltekacservice@gmail.com</a></li>
+                </ul>                
+        </div>
+          <div class="col-md-6">
+            <h2>Say hello to us</h2><br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15664.016990817228!2d76.973075!3d11.0383077!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8c769e05359ba2fc!2sCoimbatore%20Service%3A%20Washing%20Machine%2C%20AC%2C%20Fridge%2C%20Refrigerator%2C%20Air%20Conditioner%2C%20LED%20TV%20Repair%20Centre!5e0!3m2!1sen!2sin!4v1621418491679!5m2!1sen!2sin" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"[title]=""></iframe>
+          </div>
+        </div>
+      </div><br>
+    <!-- feedback.component.html -->
+<h1>Feedback Form</h1>
+<div class="container feedback">
+  <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+    <div class="form-group">
+      <label for="nameInput">Name</label>
+      <input type="text" class="form-control" id="nameInput" formControlName="name">
+      <div *ngIf="feedbackForm.get('name').invalid && feedbackForm.get('name').touched" class="invalid-feedback">
+        <div *ngIf="feedbackForm.get('name').hasError('required')">Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="emailInput">Email</label>
+      <input type="email" class="form-control" id="emailInput" formControlName="email">
+      <div *ngIf="feedbackForm.get('email').invalid && feedbackForm.get('email').touched" class="invalid-feedback">
+        <div *ngIf="feedbackForm.get('email').hasError('required')">Email is required.</div>
+        <div *ngIf="feedbackForm.get('email').hasError('email')">Please enter a valid email address.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="messageInput">Message</label>
+      <textarea class="form-control" id="messageInput" formControlName="message"></textarea>
+      <div *ngIf="feedbackForm.get('message').invalid && feedbackForm.get('message').touched" class="invalid-feedback">
+        <div *ngIf="feedbackForm.get('message').hasError('required')">Message is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ratingInput">Rating</label>
+      <div class="rating">
+        <span class="fa fa-star" (click)="setRating(1)" [ngClass]="{'checked': rating >= 1}"></span>
+        <span class="fa fa-star" (click)="setRating(2)" [ngClass]="{'checked': rating >= 2}"></span>
+        <span class="fa fa-star" (click)="setRating(3)" [ngClass]="{'checked': rating >= 3}"></span>
+        <span class="fa fa-star" (click)="setRating(4)" [ngClass]="{'checked': rating >= 4}"></span>
+        <span class="fa fa-star" (click)="setRating(5)" [ngClass]="{'checked': rating >= 5}"></span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid">Submit Feedback</button>
+  </form>
+</div>
+
+<app-footer></app-footer>
