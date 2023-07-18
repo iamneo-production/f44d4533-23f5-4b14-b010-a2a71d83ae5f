@@ -8,7 +8,7 @@ import { Employee } from '../employee';
 })
 export class EmployeeService {
 
-  private baseURL = "http://localhost:8083/employees";
+  private baseURL = "https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/employees";
 
   constructor(private httpClient: HttpClient) { }
   
