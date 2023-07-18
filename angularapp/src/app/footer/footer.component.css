@@ -1,0 +1,11 @@
+.social img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .social img:hover {
+    transform: scale(1.2);
+  }
+  footer{
+    text-align: center;
+    color: white;
+  }

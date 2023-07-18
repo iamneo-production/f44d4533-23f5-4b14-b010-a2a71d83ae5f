@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<h1>Profile</h1>
+
+<div class="page-content">
+  <div *ngIf="customer" class="profile-container">
+    <div class="customer-info">
+      <div class="customer-image">
+        <img src="assets/img/customer.png" alt="Customer Image" width="150px" height="150px">
+      </div>
+      <div class="customer-details">
+        <p><strong>Name:</strong> {{ customer.name }}</p>
+        <p><strong>Email:</strong> {{ customer.email }}</p>
+        <p><strong>Phone:</strong> {{ customer.phone }}</p>
+      </div>
+    </div>
+
+    <div class="update-info">
+      <button class="btn btn-primary" (click)="toggleUpdateFields()">Update</button>
+
+      <div *ngIf="showUpdateFields" class="input-fields">
+        <div class="form-group">
+          <label for="updatedName">Name:</label>
+          <input type="text" class="form-control" id="updatedName" [(ngModel)]="updatedName" #name="ngModel" required minlength="3" maxlength="20" placeholder="Ex: Arun Kumar">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
+            <div *ngIf="name.errors?.['required']">Name is required.</div>
+            <div *ngIf="name.errors?.['minlength']">Name must be at least 3 characters.</div>
+            <div *ngIf="name.errors?.['maxlength']">Name cannot exceed 20 characters.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="updatedEmail">Email:</label>
+          <input type="email" class="form-control" id="updatedEmail" [(ngModel)]="updatedEmail" #email="ngModel" required pattern="[a-z0-9]+@gmail\.com$" placeholder="Ex: arun@gmail.com">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['pattern']">Email must end with @gmail.com.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="updatedPhone">Phone:</label>
+          <input type="tel" class="form-control" id="updatedPhone" [(ngModel)]="updatedPhone" #phone="ngModel" required pattern="[0-9]{10}" placeholder="Ex: 8768634523">
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="invalid-feedback">
+            <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
+            <div *ngIf="phone.errors?.['pattern']">Phone number must have exactly 10 digits.</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="updateCustomer()" [disabled]="name.invalid || email.invalid || phone.invalid || name.pristine || email.pristine || phone.pristine">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  content: "";
+  /*background-image: url("assets/img/bgg.jpg");
+  background-size: cover;
+  opacity: 0.8;
+  /* Reduce the opacity to 80% */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* Send the layer to the back */
+  background-color:lightskyblue;
+
+}
+
+nav li {
+  font-size: 16px;
+  padding: 10px;
+}
