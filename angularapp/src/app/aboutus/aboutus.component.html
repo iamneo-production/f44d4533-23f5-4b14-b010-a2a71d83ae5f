@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="content">
+    <h1>About Us</h1><br>
+    <p>Welcome to CoolTek AC Service center, your trusted destination for reliable and professional air conditioning services. With 5 years of experience in the industry, we take pride in offering top-notch AC repair, installation, and maintenance services to residential and commercial clients.</p>
+<div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Our Mission</h2>
+                <p>At CoolTek AC Service center, our mission is to provide exceptional air conditioning solutions that ensure optimal comfort and efficiency for our customers. We strive to deliver reliable, cost-effective, and sustainable AC services while maintaining the highest standards of quality and customer satisfaction.</p>
+              </div>
+          <div class="col-md-4">
+            <img src="assets/img/mission.png" alt="Image" width="250" class="img-fluid">
+          </div>
+        </div>
+      </div><br>
+      <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="assets/img/expertise.png" alt="Image" width="250" class="img-fluid">
+              </div>
+            <div class="col-md-8">
+                <h2>Our Expertise</h2>
+                <p>Our team of highly skilled technicians is trained and certified to handle a wide range of air conditioning systems from leading brands. Whether it's a routine maintenance check, a complex repair, or a new AC installation, we have the expertise and knowledge to get the job done right the first time.</p>
+              </div>
+          
+        </div>
+      </div>
+      <br>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8">
+                  <h2>Quality and Reliability</h2>
+                  <p>At CoolTek Service Center, we are committed to delivering high-quality workmanship and using genuine parts to ensure the longevity and performance of your air conditioning system. We adhere to industry best practices, stay updated with the latest technologies, and continuously improve our skills to provide you with the best possible service.</p>
+                </div>
+            <div class="col-md-4">
+              <img src="assets/img/quality.png" alt="Image" width="150" class="img-fluid">
+            </div>
+          </div>
+        </div><br>
+        <div class="container">
+          <h2>Frequently Asked Questions?</h2>
+        
+          <div class="accordion" id="faqAccordion">
+            <div *ngFor="let faqItem of faqItems" class="accordion-item">
+              <h3 class="accordion-header" id="faqHeading{{ faqItem.id }}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#faqCollapse' + faqItem.id" [attr.aria-expanded]="faqItem.isOpen ? 'true' : 'false'" [attr.aria-controls]="'faqCollapse' + faqItem.id" (click)="toggleCollapse(faqItem)">
+                  {{ faqItem.question }}
+                </button>
+              </h3>
+              <div [id]="'faqCollapse' + faqItem.id" class="accordion-collapse collapse" [ngClass]="{'show': faqItem.isOpen}" [attr.aria-labelledby]="'faqHeading' + faqItem.id">
+                <div class="accordion-body">
+                  {{ faqItem.answer }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <app-footer></app-footer> 
