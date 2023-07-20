@@ -1,0 +1,39 @@
+<app-admin-navbar></app-admin-navbar>
+<h1> Employee Records</h1>
+  <div class="search-bar">
+  <input type="text" [(ngModel)]="searchKeyword" placeholder="Search by name,em.." (input)="searchEmployees()">
+  <button type="button" class="search-icon">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+<button class="btn-success" (click)="navigateToAddEmployeePage()">Add Employee</button>
+<ng-container *ngIf="employees">
+    <table class="table table-striped" *ngIf="employees.length > 0; else noemployees">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th> Name</th>
+            <th> Email </th>
+            <th> phoneNumber </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees; let i = index" >
+            <td>{{ i + 1 }}.</td>
+            <td> {{ employee.name }} </td>
+            <td> {{ employee.email }} </td>
+            <td> {{ employee.phoneNumber }} </td>
+            <td>
+                <button (click) = "updateEmployee(employee.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #noemployees>
+    <p style="text-align: center;color: red;font-style: italic;">No employees available</p>
+  </ng-template>
+  </ng-container>
+<app-footer class="footer"></app-footer>

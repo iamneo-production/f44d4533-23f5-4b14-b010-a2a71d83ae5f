@@ -4,22 +4,22 @@
   <div class="row">
     <div class="container-md-6">
       <h2>User Login</h2>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="addlogin()">
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" formControlName="email">
+          <input type="email" class="form-control" id="email" formControlName="email" [(ngModel)]="email">
           <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched" class="error-message">
             Enter valid email address.
           </div>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password" formControlName="password">
+          <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="password">
           <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" class="error-message">
             Enter valid password.
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary" >Login</button>
         <div *ngIf="loginForm.invalid && loginForm.touched" class="error-message">
           *Please fill in all the required fields.
         </div>
@@ -49,13 +49,16 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
+        <div class="forgot-password mt-3">
+          <a routerLink="/employee-login" style="text-decoration: none;color: black;font-style: italic;background-color:lightskyblue;border-radius: 2px;"> Employee Login </a>
+        </div>
         <div *ngIf="AdminloginForm.invalid && AdminloginForm.touched" class="error-message">
           *Please fill in all the required fields.
         </div>
+       
       </form>
     </div>
   </div>
 
 </div><br><br><br><br><br>
 
-  
