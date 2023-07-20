@@ -27,7 +27,7 @@
           <a routerLink="/forgot-password" style="text-decoration: none;">Forgot Password?</a>
         </div>
         <div class="login-link mt-3">
-          Don't have an account? <a routerLink="/signup" style="text-decoration: none;">Register</a>
+          Don't have an account? <span class="badge text-bg-primary"><a routerLink="/signup" style="text-decoration: none;color: white;">Register</a></span> 
         </div>
       </form>
     </div><div class="vl"></div>
@@ -50,7 +50,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
         <div class="forgot-password mt-3">
-          <a routerLink="/employee-login" style="text-decoration: none;color: black;font-style: italic;background-color:lightskyblue;border-radius: 2px;"> Employee Login </a>
+          <span class="badge text-bg-primary"><a routerLink="/employee-login" style="text-decoration: none;color: white;">Employee Login</a></span> 
         </div>
         <div *ngIf="AdminloginForm.invalid && AdminloginForm.touched" class="error-message">
           *Please fill in all the required fields.
@@ -61,4 +61,4 @@
   </div>
 
 </div><br><br><br><br><br>
-
+<app-footer></app-footer>
