@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,9 +11,29 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup | any;
 
-
-  constructor(private formBuilder: FormBuilder,private router: Router) { }
-
+  constructor(private formBuilder: FormBuilder,private http:HttpClient,private router: Router) { }
+  register: any={};
+ 
+  addregister(): void{
+    if (this.signupForm.invalid) {
+      this.signupForm.markAllAsTouched();
+      return;
+   }
+   const url = 'https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register';
+   this.http.post(url, this.register)
+  .subscribe(
+    (createdUser: any) => {
+      console.log('Register created:', createdUser);
+      if (createdUser === null) {
+        alert('Email or phone number already exists.');
+      } else {
+        this.router.navigate(['/login']);
+        alert("Account created now you can login");
+        console.log(this.register);
+      }
+    }
+  );
+  }
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3), this.validateName]],
@@ -23,7 +45,7 @@ export class SignupComponent implements OnInit {
   }
   validateName(control: AbstractControl): { [key: string]: boolean } | null {
     const name = control.value;
-    const validNameRegex = /^[A-Za-z\s]+$/;; // Matches only alphabets
+    const validNameRegex = /^[A-Za-z\s]+$/; // Matches only alphabets
 
     if (!validNameRegex.test(name)) {
       return { 'invalidName': true };
@@ -43,7 +65,7 @@ export class SignupComponent implements OnInit {
   }
   validateEmail(control: AbstractControl): { [key: string]: boolean } | null {
     const email = control.value;
-    const validEmailRegex = /^[a-z]+@gmail\.com$/; // Matches email ending with @gmail.com
+    const validEmailRegex = /^[A-Za-z0-9]+@gmail\.com$/;// Matches email ending with @gmail.com
 
     if (!validEmailRegex.test(email)) {
       return { 'invalidEmail': true };

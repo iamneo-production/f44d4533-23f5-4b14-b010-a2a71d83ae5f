@@ -1,0 +1,40 @@
+<app-admin-navbar></app-admin-navbar>
+<h1> Customer Records</h1>
+<div class="search-bar">
+    <input type="text" [(ngModel)]="searchTerm" (input)="searchCustomers()" placeholder="Search by name,em...">
+    <button type="button" class="search-icon">
+      <i class="fas fa-search"></i>
+    </button>
+</div>
+
+<div *ngIf="filteredCustomers.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>PhoneNumber</th>
+        <th>Password</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of filteredCustomers; let i = index">
+        <td>{{ i + 1 }}.</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{customer.password}}</td>
+        <td>
+          <button (click)="deleteCustomer(customer.customerId)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="filteredCustomers.length === 0 && customers.length > 0" style="color: red;text-align: center;">
+  No matching customers found.
+</div>
+<div *ngIf="customers.length === 0" style="text-align: center;color: red;font-style: italic;"> No customer available</div>
+<app-footer class="footer"></app-footer>
