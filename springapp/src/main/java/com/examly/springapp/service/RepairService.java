@@ -1,4 +1,4 @@
 package com.examly.springapp.service;
-public class EmployeeService {
+public class RepairService {
     
 }
