@@ -1,0 +1,62 @@
+
+<a href="/"><img src="assets/img/logooo.png" width="100px" height="100px" alt="Logo"></a>
+<div class="container">
+  <h2>Register Now</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="addregister()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" formControlName="name" [(ngModel)]="register.name">
+      <div *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched" class="error-message">
+        Name is required and must be a valid Name.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" formControlName="email"[(ngModel)]="register.email">
+      <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="error-message">
+        Email is required and must be a valid email address.
+      </div>
+      <div *ngIf="signupForm.get('email')?.hasError('emailExists')">
+        Email already exists.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" class="form-control" id="phone" formControlName="phone"[(ngModel)]="register.phone">
+      <div *ngIf="signupForm.get('phone').invalid && signupForm.get('phone').touched" class="error-message">
+        Phone number is required and must be a valid Phone number.
+      </div>
+      <div *ngIf="signupForm.get('phone')?.hasError('phoneExists')">
+        Phone number already exists.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" formControlName="password"[(ngModel)]="register.password">
+      <div *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched" class="error-message">
+        Password is required and must be at least 8 characters long.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+      <div *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched"
+        class="error-message">
+        Confirm password is required and must match the password.
+      </div>
+      <div *ngIf="signupForm.hasError('passwordMismatch') && signupForm.get('confirmPassword').touched"
+        class="error-message">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+    <div *ngIf="signupForm.invalid && signupForm.touched;" class="error-message">
+      *Please fill in all the required fields.
+    </div>
+    <div class="login-link mt-3">
+      Already registered? <span class="badge text-bg-primary"><a routerLink="/login" style="text-decoration: none;color: white;">Login</a></span> 
+    </div>
+  </form>
+</div><br>
+<app-footer></app-footer>
