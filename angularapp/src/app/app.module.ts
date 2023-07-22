@@ -31,6 +31,9 @@ import { AdminAddEmployeeComponent } from './admin-add-employee/admin-add-employ
 import { AdminUpdateEmployeeComponent } from './admin-update-employee/admin-update-employee.component';
 import { AdminViewEmployeeComponent } from './admin-view-employee/admin-view-employee.component';
 import { AdminViewRepairComponent } from './admin-view-repair/admin-view-repair.component';
+import { AdminUpdateDeviceComponent } from './admin-update-device/admin-update-device.component';
+import { AdminViewDeviceComponent } from './admin-view-device/admin-view-device.component';
+import { AdminAddDeviceComponent } from './admin-add-device/admin-add-device.component';
 
 
 @NgModule({
@@ -62,7 +65,10 @@ import { AdminViewRepairComponent } from './admin-view-repair/admin-view-repair.
     AdminAddEmployeeComponent,
     AdminUpdateEmployeeComponent,
     AdminViewEmployeeComponent,
-    AdminViewRepairComponent
+    AdminViewRepairComponent,
+    AdminUpdateDeviceComponent,
+    AdminViewDeviceComponent,
+    AdminAddDeviceComponent
   ],
   imports: [
     BrowserModule,
