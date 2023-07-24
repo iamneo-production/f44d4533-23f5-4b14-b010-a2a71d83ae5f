@@ -40,22 +40,65 @@
           </div>
         </div><br>
         <div class="container">
-          <h2>Frequently Asked Questions?</h2>
-        
-          <div class="accordion" id="faqAccordion">
-            <div *ngFor="let faqItem of faqItems" class="accordion-item">
-              <h3 class="accordion-header" id="faqHeading{{ faqItem.id }}">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#faqCollapse' + faqItem.id" [attr.aria-expanded]="faqItem.isOpen ? 'true' : 'false'" [attr.aria-controls]="'faqCollapse' + faqItem.id" (click)="toggleCollapse(faqItem)">
-                  {{ faqItem.question }}
-                </button>
-              </h3>
-              <div [id]="'faqCollapse' + faqItem.id" class="accordion-collapse collapse" [ngClass]="{'show': faqItem.isOpen}" [attr.aria-labelledby]="'faqHeading' + faqItem.id">
-                <div class="accordion-body">
-                  {{ faqItem.answer }}
-                </div>
-              </div>
-            </div>
-          </div>
+          <section class="faq-section">
+            <div class="container">
+              <div class="row">
+                                <!-- ***** FAQ Start ***** -->
+                                <div class="col-md-6 offset-md-3">
+            
+                                    <div class="faq-title text-center pb-3">
+                                        <h2>Frequently Asked Questions?</h2>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="faq" id="accordion">
+                                        <div class="card">
+                                            <div class="card-header" id="faqHeading-1">
+                                                <div class="mb-0">
+                                                    <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-1" data-aria-expanded="true" data-aria-controls="faqCollapse-1">
+                                                        <span class="badge">1</span>How often should I service my AC unit?
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-1" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <p>It is generally recommended to service your AC unit at least once a year. Regular maintenance helps ensure optimal performance, improves energy efficiency, and extends the lifespan of the unit. However, if you live in a dusty environment or use your AC heavily, more frequent servicing may be necessary. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="faqHeading-2">
+                                                <div class="mb-0">
+                                                    <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-2" data-aria-expanded="false" data-aria-controls="faqCollapse-2">
+                                                        <span class="badge">2</span> What is the recommended temperature setting for AC?
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <p>The recommended temperature setting for AC varies based on personal comfort and the climate. However, a general guideline is to set the thermostat between 22-24 degrees Celsius (72-75 degrees Fahrenheit) for a comfortable indoor environment. Adjust the temperature according to your preference while considering energy efficiency.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="faqHeading-3">
+                                                <div class="mb-0">
+                                                    <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-3" data-aria-expanded="false" data-aria-controls="faqCollapse-3">
+                                                        <span class="badge">3</span>What maintenance tasks can I perform on my own?
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <p>Clean or replace the air filters: Regularly cleaning or replacing the air filters is crucial for proper airflow and efficient cooling. Check the manufacturers instructions for the recommended frequency and procedure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            </section>
         </div>
         
       <app-footer></app-footer> 
