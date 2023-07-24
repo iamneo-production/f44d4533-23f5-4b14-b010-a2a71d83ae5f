@@ -23,7 +23,7 @@ export class AdminCustomersComponent implements OnInit {
   }
   
   getCustomers(): void {
-    this.http.get<any[]>('https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register').subscribe(
+    this.http.get<any[]>('https://8080-bdfebeeeacdeffacdcbbcecdcebafeccfa.project.examly.io/register').subscribe(
       (response) => {
         this.customers = response;
         this.filteredCustomers = response;

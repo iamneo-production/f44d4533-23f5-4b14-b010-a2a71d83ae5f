@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins = "https://8081-bdfebeeeacdeffacdcbbcecdcebafeccfa.project.examly.io")
 public class DeviceController {
 
     private final DeviceRepo deviceRepository;

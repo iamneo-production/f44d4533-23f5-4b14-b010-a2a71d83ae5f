@@ -16,7 +16,7 @@ import com.examly.springapp.exception.ResourceNotFoundException;
 import com.examly.springapp.model.Employee;
 import com.examly.springapp.repository.EmployeeRepo;
 
-@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io")
+@CrossOrigin(origins = "https://8081-bdfebeeeacdeffacdcbbcecdcebafeccfa.project.examly.io")
 @RestController
 public class EmployeeController {
 

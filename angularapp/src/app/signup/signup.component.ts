@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
 const start = window.location.href.indexOf('-') + 1;
 const end = window.location.href.indexOf('.project');
 this.branch = window.location.href.substring(start, end);
-this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+this.baseURL = `https://8080-bdfebeeeacdeffacdcbbcecdcebafeccfa.project.examly.io`;
   }
  
   register: any={};
@@ -29,7 +29,7 @@ this.baseURL = `https://8080-${this.branch}.project.examly.io`;
       return;
    }
 
-   const url = `${this.baseURL}/register`;
+   const url = `https://8080-bdfebeeeacdeffacdcbbcecdcebafeccfa.project.examly.io/register`;
    this.http.post(url, this.register)
   .subscribe(
     (createdUser: any) => {
