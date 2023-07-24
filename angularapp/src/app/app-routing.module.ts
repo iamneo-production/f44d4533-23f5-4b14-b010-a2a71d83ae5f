@@ -19,6 +19,13 @@ import { AdminRepairComponent } from './admin-repair/admin-repair.component';
 import { AdminEmployeeComponent } from './admin-employee/admin-employee.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 import { CustomerBookingsComponent } from './customer-bookings/customer-bookings.component';
+import { AdminAddEmployeeComponent } from './admin-add-employee/admin-add-employee.component';
+import { AdminUpdateEmployeeComponent } from './admin-update-employee/admin-update-employee.component';
+import { AdminViewEmployeeComponent } from './admin-view-employee/admin-view-employee.component';
+import { AdminViewRepairComponent } from './admin-view-repair/admin-view-repair.component';
+import { AdminViewDeviceComponent } from './admin-view-device/admin-view-device.component';
+import { AdminUpdateDeviceComponent } from './admin-update-device/admin-update-device.component';
+import { AdminAddDeviceComponent } from './admin-add-device/admin-add-device.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login',pathMatch:'full'},
@@ -40,7 +47,14 @@ const routes: Routes = [
   {path:'admin-repair',component:AdminRepairComponent},
   {path:'admin-employee',component:AdminEmployeeComponent},
   {path:'employee-login',component:EmployeeLoginComponent},
-  {path:'customer-bookings',component:CustomerBookingsComponent}
+  {path:'customer-bookings',component:CustomerBookingsComponent},
+  {path:'admin-add-employee',component:AdminAddEmployeeComponent},
+  {path:'admin-update-employee/:id',component:AdminUpdateEmployeeComponent},
+  {path:'admin-view-employee/:id',component:AdminViewEmployeeComponent},
+  {path:'admin-view-repair/:id',component:AdminViewRepairComponent},
+  {path:'admin-view-device/:id',component:AdminViewDeviceComponent},
+  {path:'admin-update-device/:id',component:AdminUpdateDeviceComponent},
+  {path:'admin-add-device',component:AdminAddDeviceComponent}
 ];
 
 @NgModule({
