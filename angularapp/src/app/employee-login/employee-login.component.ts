@@ -10,8 +10,17 @@ import { Router } from '@angular/router';
 export class EmployeeLoginComponent implements OnInit {
   EmployeeloginForm: FormGroup | any;
   email: any;
+  branch:string='';
+  baseURL:string='';
   loginError: boolean = false;
-  constructor(private formBuilder: FormBuilder,private router: Router,private http:HttpClient) { }
+  constructor(private formBuilder: FormBuilder,private http:HttpClient,private router: Router) {  
+     
+    const start = window.location.href.indexOf('-') + 1;
+    const end = window.location.href.indexOf('.project');
+    this.branch = window.location.href.substring(start, end);
+    this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+      }
+
   ngOnInit() {
     this.EmployeeloginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, this.validateEmail]]
