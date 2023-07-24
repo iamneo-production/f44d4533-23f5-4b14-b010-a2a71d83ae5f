@@ -26,35 +26,36 @@ import { AdminViewRepairComponent } from './admin-view-repair/admin-view-repair.
 import { AdminViewDeviceComponent } from './admin-view-device/admin-view-device.component';
 import { AdminUpdateDeviceComponent } from './admin-update-device/admin-update-device.component';
 import { AdminAddDeviceComponent } from './admin-add-device/admin-add-device.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login',pathMatch:'full'},
-  { path:'home', component:HomeComponent},
-  { path:'aboutus', component:AboutusComponent},
-  { path:'contactus', component:ContactusComponent},
+  { path:'home', component:HomeComponent,canActivate:[AuthGuard]},
+  { path:'aboutus', component:AboutusComponent,canActivate:[AuthGuard]},
+  { path:'contactus', component:ContactusComponent,canActivate:[AuthGuard]},
   { path:'signup', component:SignupComponent},
   { path:'login', component:LoginComponent},
   { path:'logout', component:LogoutComponent},
-  {path:'profile',component:ProfileComponent},
+  {path:'profile',component:ProfileComponent,canActivate:[AuthGuard]},
   {path:'forgot-password',component:ForgotPasswordComponent},
-  {path:'booking-list',component:BookingListComponent},
-  {path:'create-booking',component:CreateBookingComponent},
-  {path:'update-booking/:id',component:UpdateBookingComponent},
-  {path:'booking-details/:id',component:BookingDetailsComponent},
-  {path:'admin-dashboard',component:AdminDashboardComponent},
-  {path:'admin-customers',component:AdminCustomersComponent},
-  {path:'admin-device',component:AdminDeviceComponent},
-  {path:'admin-repair',component:AdminRepairComponent},
-  {path:'admin-employee',component:AdminEmployeeComponent},
+  {path:'booking-list',component:BookingListComponent,canActivate:[AuthGuard]},
+  {path:'create-booking',component:CreateBookingComponent,canActivate:[AuthGuard]},
+  {path:'update-booking/:id',component:UpdateBookingComponent,canActivate:[AuthGuard]},
+  {path:'booking-details/:id',component:BookingDetailsComponent,canActivate:[AuthGuard]},
+  {path:'admin-dashboard',component:AdminDashboardComponent,canActivate:[AuthGuard]},
+  {path:'admin-customers',component:AdminCustomersComponent,canActivate:[AuthGuard]},
+  {path:'admin-device',component:AdminDeviceComponent,canActivate:[AuthGuard]},
+  {path:'admin-repair',component:AdminRepairComponent,canActivate:[AuthGuard]},
+  {path:'admin-employee',component:AdminEmployeeComponent,canActivate:[AuthGuard]},
   {path:'employee-login',component:EmployeeLoginComponent},
-  {path:'customer-bookings',component:CustomerBookingsComponent},
-  {path:'admin-add-employee',component:AdminAddEmployeeComponent},
-  {path:'admin-update-employee/:id',component:AdminUpdateEmployeeComponent},
-  {path:'admin-view-employee/:id',component:AdminViewEmployeeComponent},
-  {path:'admin-view-repair/:id',component:AdminViewRepairComponent},
-  {path:'admin-view-device/:id',component:AdminViewDeviceComponent},
-  {path:'admin-update-device/:id',component:AdminUpdateDeviceComponent},
-  {path:'admin-add-device',component:AdminAddDeviceComponent}
+  {path:'customer-bookings',component:CustomerBookingsComponent,canActivate:[AuthGuard]},
+  {path:'admin-add-employee',component:AdminAddEmployeeComponent,canActivate:[AuthGuard]},
+  {path:'admin-update-employee/:id',component:AdminUpdateEmployeeComponent,canActivate:[AuthGuard]},
+  {path:'admin-view-employee/:id',component:AdminViewEmployeeComponent,canActivate:[AuthGuard]},
+  {path:'admin-view-repair/:id',component:AdminViewRepairComponent,canActivate:[AuthGuard]},
+  {path:'admin-view-device/:id',component:AdminViewDeviceComponent,canActivate:[AuthGuard]},
+  {path:'admin-update-device/:id',component:AdminUpdateDeviceComponent,canActivate:[AuthGuard]},
+  {path:'admin-add-device',component:AdminAddDeviceComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({
