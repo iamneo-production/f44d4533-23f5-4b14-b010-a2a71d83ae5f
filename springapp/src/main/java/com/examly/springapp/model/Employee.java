@@ -1,6 +1,12 @@
 package com.examly.springapp.model;
-
-import jakarta.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import lombok.Data;
 
 @Entity
 @Table(name = "employees")
