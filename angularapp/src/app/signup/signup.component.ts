@@ -10,8 +10,17 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup | any;
-
-  constructor(private formBuilder: FormBuilder,private http:HttpClient,private router: Router) { }
+  branch:string='';
+  baseURL:string='';
+  isAccessedFromAdmin: boolean =false;
+  constructor(private formBuilder: FormBuilder,private http:HttpClient,private router: Router) {  
+     
+const start = window.location.href.indexOf('-') + 1;
+const end = window.location.href.indexOf('.project');
+this.branch = window.location.href.substring(start, end);
+this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+  }
+ 
   register: any={};
  
   addregister(): void{
@@ -19,7 +28,8 @@ export class SignupComponent implements OnInit {
       this.signupForm.markAllAsTouched();
       return;
    }
-   const url = 'https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register';
+
+   const url = `${this.baseURL}/register`;
    this.http.post(url, this.register)
   .subscribe(
     (createdUser: any) => {

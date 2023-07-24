@@ -13,14 +13,22 @@ export class ForgotPasswordComponent  {
   forgotForm: FormGroup | any;
   email: any;
   password: any;
+  branch:string='';
+  baseURL:string='';
   
-  constructor(private formBuilder: FormBuilder,private router: Router,private http:HttpClient) { }
+  constructor(private formBuilder: FormBuilder,private http:HttpClient,private router: Router) {  
+     
+    const start = window.location.href.indexOf('-') + 1;
+    const end = window.location.href.indexOf('.project');
+    this.branch = window.location.href.substring(start, end);
+    this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+      }
   forgetPassword() { 
     if (this.forgotForm.invalid) {
       this.forgotForm.markAllAsTouched();
       return;
    }
-   const url = 'https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/forgetpassword';
+   const url = `${this.baseURL}/register/forgetpassword`;
   const options = {
     params: {
       email: this.email,

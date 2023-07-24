@@ -7,11 +7,18 @@ import { Customer } from '../customer';
   providedIn: 'root'
 })
 export class BookingService {
+  branch: string = '';
+  baseURL: string = '';
+  customerURL:string= '';
 
-  private baseURL = "https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/repairs";
-  private customerURL = "https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register";
-  
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    const start = window.location.href.indexOf('-') + 1;
+    const end = window.location.href.indexOf('.project');
+    this.branch = window.location.href.substring(start, end);
+    this.baseURL = `https://8080-${this.branch}.project.examly.io/repairs`;
+    this.customerURL = `https://8080-${this.branch}.project.examly.io/register`;
+  }
+
   getBookingsList(): Observable<Booking[]>{
     return this.httpClient.get<Booking[]>(`${this.baseURL}`);
   }
