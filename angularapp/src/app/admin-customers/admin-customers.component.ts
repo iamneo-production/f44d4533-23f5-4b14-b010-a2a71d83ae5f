@@ -23,7 +23,7 @@ export class AdminCustomersComponent implements OnInit {
   }
   
   getCustomers(): void {
-    this.http.get<any[]>('https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register').subscribe(
+    this.http.get<any[]>('https://8080-bfbfcfbdddeffacdcbbcecdcebafeccfa.project.examly.io/register').subscribe(
       (response) => {
         this.customers = response;
         this.filteredCustomers = response;
@@ -35,7 +35,7 @@ export class AdminCustomersComponent implements OnInit {
   }
 
   deleteCustomer(customerId: number): void {
-    this.http.delete(`https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/${customerId}`).subscribe(
+    this.http.delete(`https://8080-bfbfcfbdddeffacdcbbcecdcebafeccfa.project.examly.io/register/${customerId}`).subscribe(
       () => {
         console.log('Deleting customer with ID:', customerId);
         // Refresh the customer list
