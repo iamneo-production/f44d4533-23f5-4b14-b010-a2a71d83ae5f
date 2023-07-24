@@ -1,0 +1,42 @@
+<app-admin-navbar></app-admin-navbar>
+
+<h1> Device Records </h1>
+
+<div class="search-bar">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+    <button type="button" class="search-icon">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+ 
+  <button class="btn-success" (click)="navigateToAddDevicePage()">Add Device</button>
+  <ng-container *ngIf="bookings">
+<table class="table" *ngIf="bookings.length > 0; else noBookings">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>device type</th>
+      <th>device brand</th>
+      <th>device model</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of filteredBookings; let i = index">
+      <td>{{ i + 1 }}.</td>
+      <td>{{ booking.type }}</td>
+      <td>{{ booking.brand }}</td>
+      <td>{{ booking.model }}</td>
+      <td>
+        <button (click)="updateBooking(booking.id)" class="btn btn-success">Update</button>
+        <button (click)="deleteBooking(booking.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+        <button (click)="bookingDetails(booking.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noBookings>
+  <p style="text-align: center;color: red;font-style: italic;font-size: 20px">No devices available</p>
+</ng-template>
+</ng-container>
+<app-footer class="footer"></app-footer>
