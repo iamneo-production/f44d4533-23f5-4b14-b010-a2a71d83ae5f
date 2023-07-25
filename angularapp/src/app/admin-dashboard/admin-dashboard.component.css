@@ -1,0 +1,97 @@
+.widget-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.widget {
+  width: 325px;
+  height: 175px;
+  background-color: #fff;
+  color: #fff;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 5px #939393;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.widget.green {
+  background-color: rgb(4, 67, 66);
+}
+
+.widget.yellow {
+  background-color: rgb(237, 158, 32);
+}
+
+.widget.red {
+  background-color: rgb(126, 5, 5);
+}
+
+.widget.orange {
+  background-color: rgb(255, 69, 0);
+}
+
+.widget.blue {
+  background-color: rgb(105, 32, 251);
+}
+
+@media only screen and (max-width: 1600px) {
+  .widget {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .widget {
+    width: 275px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .widget {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .widget {
+    width: 225px;
+  }
+}
+
+.widget .value {
+  text-align: center;
+  width: 175px;
+}
+
+.widget .value .top {
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .widget .value .top {
+    font-size: 26px;
+  }
+}
+
+.widget .value .bottom {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .widget .value .bottom {
+    font-size: 16px;
+  }
+}
+
+.widget .value .chart-container {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-transform: uppercase;
+}
