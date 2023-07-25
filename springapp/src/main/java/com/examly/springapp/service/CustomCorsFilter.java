@@ -26,7 +26,6 @@ public class CustomCorsFilter  implements Filter {
 
         String origin = request.getHeader("Origin");
 
-        // Check if the origin matches the pattern "https://8081-"
         if (origin != null && origin.matches("https://8081-.*")) {
             response.setHeader("Access-Control-Allow-Origin", origin);
             response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");

@@ -18,7 +18,6 @@ import com.examly.springapp.service.RegisterService;
 import com.examly.springapp.model.StringResponse;
 
 @RestController
-//@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io")
 @RequestMapping("/register")
 public class RegisterController {
   private RegisterService registerService;

@@ -19,7 +19,10 @@ import com.examly.springapp.repository.RepairRepo;
 import com.examly.springapp.service.RepairService;
 import com.examly.springapp.model.StringResponse;
 import org.springframework.http.HttpStatus;
-@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io")
+
+
+
+@CrossOrigin(origins = "https://8081-bdfebeeeacdeffacdcbbcecdcebafeccfa.project.examly.io")
 @RestController
 public class RepairController {
 
