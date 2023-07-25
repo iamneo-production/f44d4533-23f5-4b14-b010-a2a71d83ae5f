@@ -39,7 +39,7 @@ export class AdminAddDeviceComponent implements OnInit {
   onSubmit(){
     console.log(this.booking);
     this.saveBooking();
-    alert("successfully booked");
+    alert("successfully Device Added");
   }
   onDeviceTypeChange() {
     if (this.booking.type === 'others') {
