@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.model.Register;
 import com.examly.springapp.service.RegisterService;
-
+import com.examly.springapp.model.StringResponse;
 
 @RestController
 //@CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io")
@@ -98,4 +98,12 @@ public class RegisterController {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred.");
     }
   }
+
+  @GetMapping("/customer-number")
+    public ResponseEntity<?> numberOfCustomers(){
+        Long number = registerService.numberOfCustomers();
+        StringResponse response = new StringResponse();
+        response.setResponse(number.toString());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

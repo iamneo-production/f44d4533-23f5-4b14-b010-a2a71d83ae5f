@@ -15,13 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.exception.ResourceNotFoundException;
 import com.examly.springapp.model.Employee;
 import com.examly.springapp.repository.EmployeeRepo;
-
+import com.examly.springapp.service.EmployeeService;
+import com.examly.springapp.model.StringResponse;
+import org.springframework.http.HttpStatus;
 @CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io")
 @RestController
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeRepo employeeRepository;
+
+	private EmployeeService employeeService;
+
+	public EmployeeController(EmployeeService employeeService) {
+    this.employeeService = employeeService;
+  }
 	
 	// get all employees
 	@GetMapping("/employees")
@@ -68,4 +76,12 @@ public class EmployeeController {
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
 	}
+
+	@GetMapping("/employee-number")
+    public ResponseEntity<?> numberOfEmployees(){
+        Long number = employeeService.numberOfEmployees();
+        StringResponse response = new StringResponse();
+        response.setResponse(number.toString());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
