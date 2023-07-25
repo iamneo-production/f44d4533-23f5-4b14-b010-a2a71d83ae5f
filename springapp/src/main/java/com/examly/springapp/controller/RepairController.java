@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.exception.ResourceNotFoundException;
 import com.examly.springapp.model.Repair;
 import com.examly.springapp.repository.RepairRepo;
-
-
+import com.examly.springapp.service.RepairService;
+import com.examly.springapp.model.StringResponse;
+import org.springframework.http.HttpStatus;
 @CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io")
 @RestController
 public class RepairController {
@@ -25,6 +26,11 @@ public class RepairController {
 	@Autowired
 	private RepairRepo repairRepository;
 	
+	private RepairService repairService;
+
+	public RepairController(RepairService repairService){
+		this.repairService=repairService;
+	}
 	
 	// get all repairs
 	@GetMapping("/repairs")
@@ -83,6 +89,12 @@ public class RepairController {
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
 	}
-	
+	@GetMapping("/repair-number")
+    public ResponseEntity<?> numberOfRepairs(){
+        Long number = repairService.numberOfRepairs();
+        StringResponse response = new StringResponse();
+        response.setResponse(number.toString());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 	
 }
