@@ -67,4 +67,7 @@ public class RegisterService {
         Optional<Register> userOptional = registerRepository.findById(customerId);
         return userOptional.orElse(null);
       }
+      public Long numberOfCustomers(){
+        return registerRepository.count();
+      }
 }
