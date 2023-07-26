@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminDashboardService } from '../services/admin-dashboard.service';
-import { Chart } from 'chart.js/auto';
 import { forkJoin } from 'rxjs';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-admin-dashboard',

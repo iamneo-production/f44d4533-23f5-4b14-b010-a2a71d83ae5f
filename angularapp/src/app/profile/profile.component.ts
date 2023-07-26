@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   }
 
   fetchCustomerData() {
-    this.http.get(`https://8080-effcecdcddaadadeffacdcbbcecdcebafeccfa.project.examly.io/register/${this.customerId}`).subscribe(
+    this.http.get(`https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/${this.customerId}`).subscribe(
       (data) => {
         this.customer = data;
       },
@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
       phone: this.updatedPhone
     };
 
-    this.http.put(`https://8080-effcecdcddaadadeffacdcbbcecdcebafeccfa.project.examly.io/register/${this.customer.customerId}`, updatedCustomer).subscribe(
+    this.http.put(`https://8080-fcefddbaffdeffacdcbbcecdcebafeccfa.project.examly.io/register/${this.customer.customerId}`, updatedCustomer).subscribe(
       (data) => {
         this.customer = data;
         console.log('Customer data updated successfully');
