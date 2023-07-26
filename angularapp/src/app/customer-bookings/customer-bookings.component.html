@@ -1,0 +1,42 @@
+<app-employee-navbar></app-employee-navbar>
+
+<h1>Customer Service Requests</h1>
+
+<table class="table" *ngIf="bookings.length > 0">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Customer Name</th>
+      <th>Phone Number</th>
+      <th>Device Type</th>
+      <th>Device brand</th>
+      <th>Device Model</th>
+      <th>Problem</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings; let i = index">
+      <td>{{ i + 1 }}.</td>
+      <td>{{booking.customer.name}}</td>
+      <td>{{booking.customer.phone}}</td>
+      <td>{{ booking.type }}</td>
+      <td>{{ booking.brand }}</td>
+      <td>{{ booking.model }}</td>
+      <td>{{ booking.description }}</td>
+      <td [ngClass]="getStatusClass(booking.status)">
+        {{ booking.status }}
+        <span class="badge bg-primary ml-4" *ngIf="booking.status === 'booked'">New</span>
+      </td>
+      
+      <td>
+        <button (click)="updateStatus(booking.id)" class="btn btn-danger" *ngIf="booking.status === 'booked'">Repair Completed</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="bookings.length === 0" style="text-align: center;color: red;font-style: italic;font-size: 20px;" class="mt-5">No bookings available</p>
+
+<app-footer class="footer"></app-footer>

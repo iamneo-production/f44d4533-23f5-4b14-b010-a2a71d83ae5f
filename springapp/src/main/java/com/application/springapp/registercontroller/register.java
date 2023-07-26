@@ -1,4 +1,4 @@
-package com.examly.springapp.controller;
+package com.application.springapp.registercontroller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.examly.springapp.model.registermodel;
-import com.examly.springapp.service.RegisterService;
+import com.application.springapp.model.registermodel;
+import com.application.springapp.service.RegisterService;
 
 
 @RestController
 @CrossOrigin(origins = "https://8081-fcefddbaffdeffacdcbbceeaeaadbdbabf.project.examly.io")
-@RequestMapping("/register")
+@RequestMapping("/registers")
 public class register {
   
   private RegisterService registerService;

@@ -1,9 +1,11 @@
+import { Customer } from "./customer";
+
 export class Booking {
     id!:number;
-    deviceType!:string;
-    deviceBrand!:string;
-    deviceModel!:string;
-    problem!:string;
-    date!:string;
-    timeSlot!:string;
+    customer!:Customer;
+    type!:string;
+    brand!:string;
+    model!:string;
+    description!:string;
+    status!: string;
 }
