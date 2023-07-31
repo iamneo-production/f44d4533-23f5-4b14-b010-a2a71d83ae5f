@@ -1,1 +1,97 @@
-<p>create-booking works!</p>
+<app-navbar></app-navbar>
+<div class="col-md-6 offset-md-3">
+  <h1>Add Booking</h1>
+  <form #bookingForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="deviceType">Device Type:</label>
+      <select class="form-control" id="deviceType" name="deviceType" [(ngModel)]="booking['type']" (change)="onDeviceTypeChange()" required>
+        <option value="" disabled>Select a device type</option>
+        <option value="Central Air Conditioner">Central Air Conditioner</option>
+        <option value="Ductless Mini-Split">Ductless Mini-Split</option>
+        <option value="Window Air Conditioner">Window Air Conditioner</option>
+        <option value="Portable Air Conditioner">Portable Air Conditioner</option>
+        <option value="Floor Mounted Air Conditioner">Floor Mounted Air Conditioner</option>
+        <option value="Smart Air Conditioner">Smart Air Conditioner</option>
+        <option value="Geothermal Air Conditioning System">Geothermal Air Conditioning System</option>
+        <option value="Hybrid / Dual Fuel Air Conditioner">Hybrid / Dual Fuel Air Conditioner</option>
+        <option value="others">Others</option>
+      </select>
+      <div *ngIf="showOtherDeviceType">
+        <label for="otherDeviceType">Other Device Type:</label>
+        <input type="text" class="form-control" id="otherDeviceType" name="otherDeviceType" [(ngModel)]="booking['type']">
+      </div>
+      <div *ngIf="bookingForm.controls['deviceType']?.invalid && bookingForm.controls['deviceType']?.touched">
+        <div *ngIf="bookingForm.controls['deviceType']?.errors?.['required']" style="color: red;">Device Type is required.</div>
+      </div>
+    </div>
+    
+   
+
+    <div class="form-group">
+      <label for="deviceBrand">Device Brand:</label>
+      <select class="form-control" id="deviceBrand" name="deviceBrand" [(ngModel)]="booking['brand']" (change)="onDeviceBrandChange()" required>
+        <option value="" disabled>Select a device Brand</option>
+        <option value="Godrej">Godrej</option>
+        <option value="Carrier">Carrier</option>
+        <option value="Haier">Haier</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Onida">Onida</option>
+        <option value="Hitachi">Hitachi</option>
+        <option value="LG">LG</option>
+        <option value="Voltas">Voltas</option>
+        <option value="Whirlpool">Whirlpool</option>
+        <option value="Panasonic">Panasonic</option>
+        <option value="others">Others</option>
+      </select>
+      <div *ngIf="showOtherDeviceBrand">
+        <label for="otherDeviceBrand">Other Device Brand:</label>
+        <input type="text" class="form-control" id="otherDeviceBrand" name="otherDeviceBrand" [(ngModel)]="booking['brand']">
+      </div>
+      <div *ngIf="bookingForm.controls['deviceBrand']?.invalid && bookingForm.controls['deviceBrand']?.touched">
+        <div *ngIf="bookingForm.controls['deviceBrand']?.errors?.['required']" style="color: red;">Device Brand is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="deviceModel">Device Model:</label>
+      <input type="text" class="form-control" id="deviceModel" name="deviceModel" [(ngModel)]="booking['model']"
+        required>
+      <div *ngIf="bookingForm.controls['deviceModel']?.invalid && bookingForm.controls['deviceModel']?.touched">
+        <div *ngIf="bookingForm.controls['deviceModel']?.errors?.['required']" style="color: red;">Device Model is
+          required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="problem">Problem:</label>
+      <select class="form-control" id="problem" name="problem" [(ngModel)]="booking['description']" (change)="onProblemChange()" required>
+        <option value="" disabled>Select a problem</option>
+        <option value="AC not cooling">AC not cooling</option>
+        <option value="AC not turning on">AC not turning on</option>
+        <option value="AC making strange noises">AC making strange noises</option>
+        <option value="Water leakage">Water leakage</option>
+        <option value="AC not blowing air">AC not blowing air</option>
+        <option value="Foul odor from AC">Foul odor from AC</option>
+        <option value="AC thermostat issues">AC thermostat issues</option>
+        <option value="AC fan not working">AC fan not working</option>
+        <option value="AC freezing up">AC freezing up</option>
+        <option value="AC electrical problems">AC electrical problems</option>
+        <option value="AC install or uninstall">AC install or uninstall</option>
+        <option value="others">Others</option>
+      </select>
+      <div *ngIf="showOtherProblem">
+        <label for="otherProblem">Other Problem:</label>
+        <input type="text" class="form-control" id="otherProblem" name="otherProblem" [(ngModel)]="booking['description']">
+      </div>
+      <div *ngIf="bookingForm.controls['problem']?.invalid && bookingForm.controls['problem']?.touched">
+        <div *ngIf="bookingForm.controls['problem']?.errors?.['required']" style="color: red;">Problem is required.</div>
+      </div>
+    </div>
+
+   
+    <button class="btn btn-success" type="submit" [disabled]="bookingForm.invalid">Submit</button>
+  </form>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<app-footer></app-footer>

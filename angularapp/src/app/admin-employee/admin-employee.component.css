@@ -1,0 +1,110 @@
+h1{
+    text-align:center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+  
+  td {
+    text-align: center;
+    background-color: rgba(248, 248, 248, 0.8);
+  }
+  
+  .btn {
+    background-color: #12364e;
+    color: white;
+    font-size: 1.0rem;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .status-booked {
+    background-color: yellow;
+    color: black;
+    font-style: italic;
+  }
+  
+  .status-repair-completed {
+    background-color: green;
+    color: black;
+    font-style: italic;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .app-container {
+    min-height: 100%;
+    position: relative;
+  }
+  
+  .content {
+    padding-bottom: 100px; /* Adjust the value based on the height of your footer */
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px; /* Adjust the height as needed */
+  }
+  .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .search-bar .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-bar .search-icon i {
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .search-bar .search-icon i:hover {
+    color: #000;
+  }
